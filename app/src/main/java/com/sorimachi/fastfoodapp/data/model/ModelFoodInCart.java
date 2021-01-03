@@ -1,10 +1,12 @@
 package com.sorimachi.fastfoodapp.data.model;
 
 public class ModelFoodInCart {
+    private int foodCode;
     private String name, price;
     private int amount;
 
-    public ModelFoodInCart(String name, int amount, String price) {
+    public ModelFoodInCart(int foodCode, String name, int amount, String price) {
+        this.foodCode = foodCode;
         this.name = name;
         this.amount = amount;
         this.price = price;
@@ -32,5 +34,13 @@ public class ModelFoodInCart {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public int getFoodCode() {
+        return foodCode;
+    }
+
+    public void setFoodCode(int foodCode) {
+        this.foodCode = foodCode;
     }
 }

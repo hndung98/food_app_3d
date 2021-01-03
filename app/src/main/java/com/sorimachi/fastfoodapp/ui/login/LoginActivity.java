@@ -3,8 +3,6 @@ package com.sorimachi.fastfoodapp.ui.login;
 import androidx.annotation.NonNull;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -27,19 +25,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.sorimachi.fastfoodapp.R;
-import com.sorimachi.fastfoodapp.data.model.Food;
 import com.sorimachi.fastfoodapp.data.model.User;
-import com.sorimachi.fastfoodapp.seller.SellerAddFoodActivity;
-import com.sorimachi.fastfoodapp.user.CustomerFoodListActivity;
-import com.sorimachi.fastfoodapp.user.CustomerMainActivity;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
+import com.sorimachi.fastfoodapp.shop.ShopMainActivity;
+import com.sorimachi.fastfoodapp.customer.CustomerFoodListActivity;
+import com.sorimachi.fastfoodapp.customer.CustomerMainActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -80,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                 .priority(Priority.HIGH);
 
         Glide.with(this)
-                .load("https://firebasestorage.googleapis.com/v0/b/fastfood-3b635.appspot.com/o/images%2Fshop4.jpg?alt=media&token=f8c7140e-41a3-4ef8-905d-14e01fb950cd")
+                .load("https://firebasestorage.googleapis.com/v0/b/fastfood-3b635.appspot.com/o/images%2F2-2-junk-food-png-image-thumb.png?alt=media&token=dcc1a190-67d2-4df8-a25e-03d996fdd455")
                 .apply(options)
                 .into(imageLogo);
 //        Glide.with(this)
@@ -99,12 +91,13 @@ public class LoginActivity extends AppCompatActivity {
                     if(user.getPassword().equals(password)){
                         Intent intent;
                         if(user.getType() == 0){
-                            intent = new Intent(LoginActivity.this, SellerAddFoodActivity.class);
+                            intent = new Intent(LoginActivity.this, ShopMainActivity.class);
                         }
                         else {
                             intent = new Intent(LoginActivity.this, CustomerMainActivity.class);
                         }
                         intent.putExtra("code", edtUsername.getText().toString());
+                        intent.putExtra("phone", user.getPhone());
                         startActivity(intent);
                         finish();
                     }
@@ -164,7 +157,7 @@ public class LoginActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StorageReference ref = storage.getReference().child("images/shop4.jpg");
+                StorageReference ref = storage.getReference().child("images/2-2-junk-food-png-image-thumb.png");
                 ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
@@ -183,7 +176,7 @@ public class LoginActivity extends AppCompatActivity {
 //                } catch (IOException e) {
 //                    e.printStackTrace();
 //                }
-//                Intent intent = new Intent(LoginActivity.this, SellerAddFoodActivity.class);
+//                Intent intent = new Intent(LoginActivity.this, ShopAddFoodActivity.class);
 //                startActivity(intent);
 //                finish();
             }

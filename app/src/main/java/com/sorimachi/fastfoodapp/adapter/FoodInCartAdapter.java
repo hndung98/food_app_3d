@@ -19,12 +19,14 @@ public class FoodInCartAdapter extends RecyclerView.Adapter<FoodInCartAdapter.Vi
 
     private Context mContext;
     private ArrayList<ModelFoodInCart> mList;
+    private boolean allowEditAmount;
     private OnMinusItemClickListener minusListener;
     private OnPlusItemClickListener plusListener;
 
-    public FoodInCartAdapter(Context context, ArrayList<ModelFoodInCart> list){
+    public FoodInCartAdapter(Context context, ArrayList<ModelFoodInCart> list, boolean allowEditAmount){
         mContext = context;
         mList = list;
+        this.allowEditAmount = allowEditAmount;
     }
 
     public interface OnMinusItemClickListener {
@@ -60,12 +62,16 @@ public class FoodInCartAdapter extends RecyclerView.Adapter<FoodInCartAdapter.Vi
         ImageButton btn_minus = holder.item_minus;
         ImageButton btn_plus = holder.item_plus;
 
-
-        String strAmount = mList.get(position).getAmount() + "";
+        int intAmount = mList.get(position).getAmount();
+        int intPrice = Integer.parseInt(mList.get(position).getPrice()) * intAmount;
 
         name.setText(mList.get(position).getName());
-        price.setText(mList.get(position).getPrice());
-        amount.setText(strAmount);
+        price.setText(intPrice+"");
+        amount.setText(intAmount+"");
+        if(!allowEditAmount){
+            btn_minus.setVisibility(View.INVISIBLE);
+            btn_plus.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
@@ -93,8 +99,10 @@ public class FoodInCartAdapter extends RecyclerView.Adapter<FoodInCartAdapter.Vi
                         int position = getAdapterPosition();
                         if(position != RecyclerView.NO_POSITION) {
                             minusListener.onItemClick(position);
-                            String strAmount = mList.get(position).getAmount() + "";
-                            item_amount.setText(strAmount);
+                            int amount = mList.get(position).getAmount();
+                            int price = Integer.parseInt(mList.get(position).getPrice()) * amount;
+                            item_amount.setText(amount + "");
+                            item_price.setText(price + "");
                         }
                     }
                 }
@@ -107,8 +115,10 @@ public class FoodInCartAdapter extends RecyclerView.Adapter<FoodInCartAdapter.Vi
                         int position = getAdapterPosition();
                         if(position != RecyclerView.NO_POSITION) {
                             plusListener.onItemClick(position);
-                            String strAmount = mList.get(position).getAmount() + "";
-                            item_amount.setText(strAmount);
+                            int amount = mList.get(position).getAmount();
+                            int price = Integer.parseInt(mList.get(position).getPrice()) * amount;
+                            item_amount.setText(amount + "");
+                            item_price.setText(price + "");
                         }
                     }
                 }

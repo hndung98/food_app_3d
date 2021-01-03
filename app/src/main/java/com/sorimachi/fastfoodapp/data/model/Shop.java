@@ -3,14 +3,14 @@ package com.sorimachi.fastfoodapp.data.model;
 import java.util.ArrayList;
 
 public class Shop {
-    private int shopCode;
+    private String shopCode;
     private String phone, name, address, image;
     private ArrayList<String> keyList;
     private ArrayList<Food> foodList;
 
     public Shop(){}
 
-    public Shop(int shopCode, String phone, String name, String address, String image, ArrayList<String> keyList, ArrayList<Food> foodList) {
+    public Shop(String shopCode, String phone, String name, String address, String image, ArrayList<String> keyList, ArrayList<Food> foodList) {
         this.shopCode = shopCode;
         this.phone = phone;
         this.name = name;
@@ -20,11 +20,11 @@ public class Shop {
         this.foodList = foodList;
     }
 
-    public int getShopCode() {
+    public String getShopCode() {
         return shopCode;
     }
 
-    public void setShopCode(int shopCode) {
+    public void setShopCode(String shopCode) {
         this.shopCode = shopCode;
     }
 

@@ -25,10 +25,12 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     private Context mContext;
     private ArrayList<ModelFood> mList;
     private OnItemClickListener mListener;
+    private String buttonText;
 
-    public FoodAdapter(Context context, ArrayList<ModelFood> list){
+    public FoodAdapter(Context context, ArrayList<ModelFood> list, String buttonText){
         mContext = context;
         mList = list;
+        this.buttonText = buttonText;
     }
 
     public interface OnItemClickListener {
@@ -66,6 +68,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
         name.setText(item_food.getName());
         place.setText(item_food.getStatus());
         price.setText(item_food.getPrice());
+        btn_add.setText(buttonText);
 
         RequestOptions options = new RequestOptions()
                 .centerCrop()

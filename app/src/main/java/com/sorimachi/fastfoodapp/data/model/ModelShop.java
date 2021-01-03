@@ -3,10 +3,10 @@ package com.sorimachi.fastfoodapp.data.model;
 import android.widget.ImageView;
 
 public class ModelShop {
-    private int code;
+    private String code;
     private String name, image, address;
 
-    public ModelShop(int code, String name, String image, String address) {
+    public ModelShop(String code, String name, String image, String address) {
         this.code = code;
         this.image = image;
         this.name = name;
@@ -37,11 +37,11 @@ public class ModelShop {
         this.address = address;
     }
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 }

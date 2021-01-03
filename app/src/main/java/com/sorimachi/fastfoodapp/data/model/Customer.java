@@ -1,28 +1,22 @@
 package com.sorimachi.fastfoodapp.data.model;
 
-public class Customer {
-    private int customerCode;
-    private String phone, password, email, name, sex, birthDate, address;
-    private int getRegisterDate;
+import java.util.ArrayList;
 
-    public Customer(int customerCode, String phone, String password, String email, String name, String sex, String birthDate, String address, int getRegisterDate) {
-        this.customerCode = customerCode;
+public class Customer {
+    private String phone, name, sex, address;
+    private int startDate, birthday;
+    private ArrayList<String> lstShop;
+
+    public Customer(){}
+
+    public Customer(String phone, String name, String sex, String address, int startDate, int birthday, ArrayList<String> lstShop) {
         this.phone = phone;
-        this.password = password;
-        this.email = email;
         this.name = name;
         this.sex = sex;
-        this.birthDate = birthDate;
         this.address = address;
-        this.getRegisterDate = getRegisterDate;
-    }
-
-    public int getCustomerCode() {
-        return customerCode;
-    }
-
-    public void setCustomerCode(int customerCode) {
-        this.customerCode = customerCode;
+        this.startDate = startDate;
+        this.birthday = birthday;
+        this.lstShop = lstShop;
     }
 
     public String getPhone() {
@@ -31,22 +25,6 @@ public class Customer {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getName() {
@@ -65,14 +43,6 @@ public class Customer {
         this.sex = sex;
     }
 
-    public String getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -81,11 +51,27 @@ public class Customer {
         this.address = address;
     }
 
-    public int getGetRegisterDate() {
-        return getRegisterDate;
+    public int getStartDate() {
+        return startDate;
     }
 
-    public void setGetRegisterDate(int getRegisterDate) {
-        this.getRegisterDate = getRegisterDate;
+    public void setStartDate(int startDate) {
+        this.startDate = startDate;
+    }
+
+    public int getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(int birthday) {
+        this.birthday = birthday;
+    }
+
+    public ArrayList<String> getLstShop() {
+        return lstShop;
+    }
+
+    public void setLstShop(ArrayList<String> lstShop) {
+        this.lstShop = lstShop;
     }
 }

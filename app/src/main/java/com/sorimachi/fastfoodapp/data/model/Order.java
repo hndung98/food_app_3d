@@ -1,23 +1,23 @@
 package com.sorimachi.fastfoodapp.data.model;
 
 public class Order {
-    private int foodCode, price, amount, discount;
-
+    private int price, amount, discount;
+    private String foodName;
     public Order(){}
 
-    public Order(int foodCode, int price, int amount, int discount) {
-        this.foodCode = foodCode;
+    public Order(String foodName, int price, int amount, int discount) {
+        this.foodName = foodName;
         this.price = price;
         this.amount = amount;
         this.discount = discount;
     }
 
-    public int getFoodCode() {
-        return foodCode;
+    public String getFoodName() {
+        return foodName;
     }
 
-    public void setFoodCode(int foodCode) {
-        this.foodCode = foodCode;
+    public void setFoodName(String foodName) {
+        this.foodName = foodName;
     }
 
     public int getPrice() {

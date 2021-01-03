@@ -1,26 +1,26 @@
 package com.sorimachi.fastfoodapp.data.model;
 
 public class Food {
-    private int priority;
+    private int foodCode;
     private String name, unit, image;
     private int price;
 
     public Food(){}
 
-    public Food(int priority, String name, int price, String unit, String image) {
-        this.priority = priority;
+    public Food(int foodCode, String name, int price, String unit, String image) {
+        this.foodCode = foodCode;
         this.name = name;
         this.unit = unit;
         this.image = image;
         this.price = price;
     }
 
-    public int getPriority() {
-        return priority;
+    public int getFoodCode() {
+        return foodCode;
     }
 
-    public void setPriority(int foodCode) {
-        this.priority = foodCode;
+    public void setFoodCode(int foodCode) {
+        this.foodCode = foodCode;
     }
 
     public String getName() {

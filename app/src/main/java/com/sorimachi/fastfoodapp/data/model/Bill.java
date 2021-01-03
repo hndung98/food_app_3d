@@ -3,12 +3,13 @@ package com.sorimachi.fastfoodapp.data.model;
 import java.util.ArrayList;
 
 public class Bill {
-    private int billCode, customerCode, shopCode, ymd, hms, status;
+    private String billCode, shopCode, customerCode;
+    private int ymd, hms, status;
     private ArrayList<Order> OrdersList;
 
     public Bill(){}
 
-    public Bill(int billCode, int customerCode, int shopCode, int ymd, int hms, int status, ArrayList<Order> ordersList) {
+    public Bill(String billCode, String shopCode, String customerCode, int ymd, int hms, int status, ArrayList<Order> ordersList) {
         this.billCode = billCode;
         this.customerCode = customerCode;
         this.shopCode = shopCode;
@@ -18,27 +19,27 @@ public class Bill {
         OrdersList = ordersList;
     }
 
-    public int getBillCode() {
+    public String getBillCode() {
         return billCode;
     }
 
-    public void setBillCode(int billCode) {
+    public void setBillCode(String billCode) {
         this.billCode = billCode;
     }
 
-    public int getCustomerCode() {
+    public String getCustomerCode() {
         return customerCode;
     }
 
-    public void setCustomerCode(int customerCode) {
+    public void setCustomerCode(String customerCode) {
         this.customerCode = customerCode;
     }
 
-    public int getShopCode() {
+    public String getShopCode() {
         return shopCode;
     }
 
-    public void setShopCode(int shopCode) {
+    public void setShopCode(String shopCode) {
         this.shopCode = shopCode;
     }
 
